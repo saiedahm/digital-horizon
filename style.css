@@ -239,7 +239,7 @@ a {
     overflow: hidden;
     background:
         radial-gradient(ellipse at center top, rgba(0, 120, 255, .55), transparent 55%),
-        url("images/hero.jpg") center / cover no-repeat;
+        url("images/about-ai.jpg.png") center / cover no-repeat;
 }
 
 .hero-background {
@@ -473,7 +473,7 @@ a {
     padding: 100px 7%;
     background:
         linear-gradient(90deg, rgba(0, 5, 15, .96), rgba(0, 7, 18, .65), rgba(0, 5, 15, .9)),
-        url("images/about-ai.jpg") center / cover no-repeat;
+        url("images/about-ai.jpg.png") center / cover no-repeat;
 }
 
 .about-overlay {
