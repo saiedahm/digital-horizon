@@ -239,7 +239,7 @@ a {
     overflow: hidden;
     background:
         radial-gradient(ellipse at center top, rgba(0, 120, 255, .55), transparent 55%),
-        url("images/about-ai.jpg.png") center / cover no-repeat;
+        url("images/about-ai.jpg") center / cover no-repeat;
 }
 
 .hero-background {
@@ -473,7 +473,7 @@ a {
     padding: 100px 7%;
     background:
         linear-gradient(90deg, rgba(0, 5, 15, .96), rgba(0, 7, 18, .65), rgba(0, 5, 15, .9)),
-        url("images/about-ai.jpg.png") center / cover no-repeat;
+        url("images/about-ai.jpg") center / cover no-repeat;
 }
 
 .about-overlay {
@@ -850,4 +850,24 @@ a {
     .legal-modal {
         padding: 30px 20px;
     }
+}
+
+/* ==================== GOOGLE TRANSLATE (hidden UI) ==================== */
+#google_translate_element {
+    position: fixed;
+    left: -10000px;
+    top: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.goog-te-menu-frame {
+    display: none !important;
+}
+body {
+    top: 0 !important;
 }

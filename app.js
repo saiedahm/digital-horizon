@@ -56,56 +56,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
        LANGUAGE SELECTION
+       Uses Google Translate so the existing language menu
+       actually translates the visible page without changing
+       the website design.
     ===================================================== */
 
-    const languageButtons =
-        document.querySelectorAll(
-            ".language-menu button"
+    const supportedLanguages = [
+        "de","en","fr","es","it","pt","nl","da","sv","no","fi",
+        "pl","cs","sk","hu","ro","bg","el","tr","ru","uk","ar",
+        "he","fa","hi","bn","ur","zh-CN","ja","ko","vi","th","id"
+    ];
+
+    let googleTranslateReady = false;
+
+    window.googleTranslateElementInit = function () {
+        if (!window.google || !google.translate) return;
+
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: "de",
+                includedLanguages: supportedLanguages.join(","),
+                autoDisplay: false
+            },
+            "google_translate_element"
         );
 
+        googleTranslateReady = true;
+    };
+
+    const googleScript = document.createElement("script");
+    googleScript.src =
+        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    googleScript.async = true;
+    document.head.appendChild(googleScript);
+
+    function applyLanguage(lang) {
+        document.documentElement.lang = lang;
+
+        if (["ar", "he", "fa", "ur"].includes(lang)) {
+            document.documentElement.dir = "rtl";
+        } else {
+            document.documentElement.dir = "ltr";
+        }
+
+        const selectLanguage = () => {
+            const combo = document.querySelector(".goog-te-combo");
+
+            if (!combo) return false;
+
+            combo.value = lang;
+            combo.dispatchEvent(new Event("change"));
+
+            return true;
+        };
+
+        if (lang === "de") {
+            // Reset Google Translate back to the original German page.
+            const combo = document.querySelector(".goog-te-combo");
+            if (combo) {
+                combo.value = "de";
+                combo.dispatchEvent(new Event("change"));
+            } else {
+                // Reloading is the most reliable reset on static hosting.
+                window.location.reload();
+            }
+            return;
+        }
+
+        if (selectLanguage()) return;
+
+        let attempts = 0;
+        const timer = setInterval(() => {
+            attempts++;
+
+            if (selectLanguage() || attempts >= 40) {
+                clearInterval(timer);
+            }
+        }, 250);
+    }
 
     languageButtons.forEach(button => {
-
         button.addEventListener("click", () => {
-
-            const lang =
-                button.dataset.lang;
-
-            const languageName =
-                button.textContent.trim();
+            const lang = button.dataset.lang;
+            const languageName = button.textContent.trim();
 
             if (languageButton) {
-
                 languageButton.innerHTML =
                     `${languageName} <span>▾</span>`;
-
             }
 
-            languageMenu.classList.remove("open");
-
-
-            /*
-             * Set the document language.
-             * Full automatic translation can be connected
-             * later through a translation service/API.
-             */
-
-            document.documentElement.lang = lang;
-
-            if (
-                ["ar", "he", "fa", "ur"].includes(lang)
-            ) {
-
-                document.documentElement.dir = "rtl";
-
-            } else {
-
-                document.documentElement.dir = "ltr";
-
+            if (languageMenu) {
+                languageMenu.classList.remove("open");
             }
 
+            if (supportedLanguages.includes(lang)) {
+                applyLanguage(lang);
+            }
         });
-
     });
 
 
