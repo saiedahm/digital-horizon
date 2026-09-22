@@ -1,128 +1,816 @@
+
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="de" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ديجيتال هورايزونز | المنصة الدولية للذكاء الاصطناعي</title>
+
+    <title>digital-horizons.ai | Pure AI Ecosystem</title>
+
+    <meta name="description"
+          content="Digital Horizons AI – das internationale KI-Ökosystem für digitale Innovation, Webentwicklung, intelligente Plattformen und die Zukunft.">
+
+    <meta name="theme-color" content="#020914">
+
+    <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- الهيدر العلوي مع الشعار -->
-    <header class="main-header">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Digital Horizons Logo" class="header-logo">
-            <div class="logo-text-box">
-                <a href="index.html" class="logo-text">ديجيتال - هورايزونز</a>
-                <span class="logo-sub">حلول الذكاء الاصطناعي (الجهة المتقدمة)</span>
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="main-header">
+
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+
+            <img
+                src="images/logo.png"
+                alt="digital-horizons.ai"
+                class="header-logo"
+            >
+
+            <div class="brand-text">
+                <span class="brand-name">
+                    digital-<span>horizons.ai</span>
+                </span>
+
+                <small>
+                    UG (haftungsbeschränkt)
+                </small>
             </div>
-        </div>
-        
+
+        </a>
+
+
         <nav class="nav-links">
-            <a href="index.html">الصفحة الرئيسية</a>
-            <a href="ecosystem.html">نظامنا البيئي</a>
-            <a href="explore.html">استكشف</a>
-            <a href="about.html">حول نظامنا</a>
-            <a href="#contact" id="contact-btn">اتصل بنا</a>
+
+            <a href="index.html" class="active">
+                Home
+            </a>
+
+            <a href="#ecosystem">
+                Unser Ökosystem
+            </a>
+
+            <a href="#about">
+                Über uns
+            </a>
+
+            <a href="#contact">
+                Kontakt
+            </a>
+
         </nav>
 
-        <div class="lang-selector">
-            <button class="lang-btn">🇩🇪 Deutsch ▾</button>
-        </div>
-    </header>
 
-    <!-- القسم الرئيسي والفيديو -->
-    <main class="hero-section">
-        <div class="hero-content">
-            <h1>نشكل مستقبل الغد بالذكاء الاصطناعي النقي</h1>
-            <p>النظام الرسمي المتقدم للحلول الرقمية والذكاء الاصطناعي، نصمم ونطور لنعل المستقبل بين يديك بسلاسة واحترافية.</p>
-        </div>
-        <div class="video-container">
-            <video controls autoplay muted loop>
-                <source src="presentation.mp4" type="video/mp4">
-                متصفحك لا يدعم عرض الفيديو.
-            </video>
-        </div>
-    </main>
+        <!-- LANGUAGE -->
 
-    <!-- قسم المنصات والنظام البيئي مع الصور الأربع -->
-    <section class="ecosystem-section">
-        <h2>نظامنا البيئي المتقدم</h2>
-        <div class="platforms-grid">
-            
-            <!-- منصة سكن -->
-            <div class="platform-card">
-                <img src="images/sakan.jpg" alt="منصة سكن" class="platform-img">
-                <div class="platform-body">
-                    <h3>منصة سكن</h3>
-                    <p>الحل الذكي لإدارة العقارات، السكن، وتسهيل إجراءات الإقامة بذكاء وسرعة فائقة.</p>
-                    <a href="https://sakenapp.net" target="_blank" class="platform-link">زيارة منصة سكن ←</a>
-                </div>
+        <div class="language-wrapper">
+
+            <button
+                type="button"
+                class="lang-btn"
+                id="languageButton"
+                aria-expanded="false"
+            >
+                🇩🇪 Deutsch
+                <span>▾</span>
+            </button>
+
+            <div
+                class="language-menu"
+                id="languageMenu"
+            >
+
+                <button data-lang="de">🇩🇪 Deutsch</button>
+                <button data-lang="en">🇬🇧 English</button>
+                <button data-lang="fr">🇫🇷 Français</button>
+                <button data-lang="es">🇪🇸 Español</button>
+                <button data-lang="it">🇮🇹 Italiano</button>
+                <button data-lang="pt">🇵🇹 Português</button>
+                <button data-lang="nl">🇳🇱 Nederlands</button>
+                <button data-lang="da">🇩🇰 Dansk</button>
+                <button data-lang="sv">🇸🇪 Svenska</button>
+                <button data-lang="no">🇳🇴 Norsk</button>
+                <button data-lang="fi">🇫🇮 Suomi</button>
+                <button data-lang="pl">🇵🇱 Polski</button>
+                <button data-lang="cs">🇨🇿 Čeština</button>
+                <button data-lang="sk">🇸🇰 Slovenčina</button>
+                <button data-lang="hu">🇭🇺 Magyar</button>
+                <button data-lang="ro">🇷🇴 Română</button>
+                <button data-lang="bg">🇧🇬 Български</button>
+                <button data-lang="el">🇬🇷 Ελληνικά</button>
+                <button data-lang="tr">🇹🇷 Türkçe</button>
+                <button data-lang="ru">🇷🇺 Русский</button>
+                <button data-lang="uk">🇺🇦 Українська</button>
+                <button data-lang="ar">🇸🇦 العربية</button>
+                <button data-lang="he">🇮🇱 עברית</button>
+                <button data-lang="fa">🇮🇷 فارسی</button>
+                <button data-lang="hi">🇮🇳 हिन्दी</button>
+                <button data-lang="bn">🇧🇩 বাংলা</button>
+                <button data-lang="ur">🇵🇰 اردو</button>
+                <button data-lang="zh-CN">🇨🇳 中文</button>
+                <button data-lang="ja">🇯🇵 日本語</button>
+                <button data-lang="ko">🇰🇷 한국어</button>
+                <button data-lang="vi">🇻🇳 Tiếng Việt</button>
+                <button data-lang="th">🇹🇭 ไทย</button>
+                <button data-lang="id">🇮🇩 Bahasa Indonesia</button>
+
             </div>
 
-            <!-- منصة نكسورا ديجيتال -->
-            <div class="platform-card">
-                <img src="images/nexora.jpg" alt="نكسورا ديجيتال" class="platform-img">
-                <div class="platform-body">
-                    <h3>نكسورا ديجيتال</h3>
-                    <p>تطوير الويب، الأمن الرقمي، وحلول الذكاء الاصطناعي المتقدمة لمشاريع المستقبل.</p>
-                    <a href="https://www.nexoraonline.de" target="_blank" class="platform-link">زيارة منصة نكسورا ←</a>
-                </div>
+        </div>
+
+
+        <a
+            href="#ecosystem"
+            class="header-cta"
+        >
+            Unser Ökosystem
+            <span>→</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<main>
+
+<section class="hero-section">
+
+    <div class="hero-background"></div>
+
+    <div class="hero-content">
+
+        <img
+            src="images/logo.png"
+            alt="digital-horizons.ai"
+            class="hero-logo"
+        >
+
+        <div class="hero-brand">
+            digital-<span>horizons.ai</span>
+        </div>
+
+        <h1>
+            Wir gestalten die digitalen Horizonte
+            <span>mit Pure AI</span>
+        </h1>
+
+        <p>
+            Das offizielle digitale Ökosystem für intelligente
+            Technologien, moderne Webentwicklung und internationale
+            KI-Lösungen.
+        </p>
+
+        <a
+            href="#ecosystem"
+            class="hero-button"
+        >
+            Unser Ökosystem entdecken
+            <span>→</span>
+        </a>
+
+    </div>
+
+
+    <!-- VIDEO -->
+
+    <div class="video-container">
+
+        <video
+            controls
+            muted
+            playsinline
+            poster="images/hero.jpg"
+        >
+
+            <source
+                src="presentation.mp4"
+                type="video/mp4"
+            >
+
+            Ihr Browser unterstützt keine Videowiedergabe.
+
+        </video>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ECOSYSTEM
+========================================================= -->
+
+<section
+    class="ecosystem-section"
+    id="ecosystem"
+>
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            DIGITAL ECOSYSTEM
+        </span>
+
+        <h2>
+            Unser intelligentes Ökosystem
+        </h2>
+
+        <p>
+            Drei spezialisierte Plattformen. Eine gemeinsame
+            technologische Vision. Entwickelt für die digitale Zukunft.
+        </p>
+
+    </div>
+
+
+    <div class="platforms-grid">
+
+
+        <!-- SAKAN -->
+
+        <article class="platform-card gold">
+
+            <div class="platform-image-wrapper">
+
+                <img
+                    src="images/sakan.jpg"
+                    alt="SAKAN Plattform"
+                    class="platform-img"
+                    loading="lazy"
+                >
+
             </div>
 
-            <!-- منصة هيلب مي -->
-            <div class="platform-card">
-                <img src="images/helpmey.jpg" alt="منصة هيلب مي" class="platform-img">
-                <div class="platform-body">
-                    <h3>منصة هيلب مي</h3>
-                    <p>المساعد العالمي المتكامل لتقديم الدعم الفوري والاستشارات المتنوعة في أي وقت.</p>
-                    <a href="https://helpmey.net" target="_blank" class="platform-link">زيارة منصة هيلب مي ←</a>
-                </div>
+            <div class="platform-body">
+
+                <span class="platform-number">
+                    01
+                </span>
+
+                <h3>
+                    SAKAN
+                </h3>
+
+                <p class="platform-domain">
+                    sakanapp.net
+                </p>
+
+                <p>
+                    Eine intelligente digitale Plattform für
+                    Menschen, Beziehungen und eine moderne Zukunft.
+                    KI unterstützt den Prozess präzise und effizient.
+                </p>
+
+                <a
+                    href="https://www.sakanapp.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="platform-link"
+                >
+                    SAKAN besuchen
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- NEXORA -->
+
+        <article class="platform-card blue">
+
+            <div class="platform-image-wrapper">
+
+                <img
+                    src="images/nexora.jpg"
+                    alt="NEXORA Digital"
+                    class="platform-img"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="platform-body">
+
+                <span class="platform-number">
+                    02
+                </span>
+
+                <h3>
+                    NEXORA
+                </h3>
+
+                <p class="platform-domain">
+                    nexoraonline.de
+                </p>
+
+                <p>
+                    Moderne Webentwicklung, digitale Transformation,
+                    KI-Integration, Automatisierung und intelligente
+                    digitale Lösungen für Unternehmen.
+                </p>
+
+                <a
+                    href="https://www.nexoraonline.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="platform-link"
+                >
+                    NEXORA besuchen
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- HELPMEY -->
+
+        <article class="platform-card cyan">
+
+            <div class="platform-image-wrapper">
+
+                <img
+                    src="images/helpmey.jpg"
+                    alt="HelpMey Plattform"
+                    class="platform-img"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="platform-body">
+
+                <span class="platform-number">
+                    03
+                </span>
+
+                <h3>
+                    HELPMEY
+                </h3>
+
+                <p class="platform-domain">
+                    helpmey.net
+                </p>
+
+                <p>
+                    Ein globaler KI-Assistent für Reisen,
+                    Relocation, Wohnen, rechtliche Orientierung
+                    und internationale Unterstützung.
+                </p>
+
+                <a
+                    href="https://www.helpmey.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="platform-link"
+                >
+                    HelpMey besuchen
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <!-- ECOSYSTEM FEATURES -->
+
+    <div class="ecosystem-features">
+
+        <div>
+            <strong>◉</strong>
+            <span>
+                <b>Powered by AI</b>
+                Intelligente Lösungen für morgen.
+            </span>
+        </div>
+
+        <div>
+            <strong>◇</strong>
+            <span>
+                <b>Trusted & Secure</b>
+                Technologie mit Verantwortung.
+            </span>
+        </div>
+
+        <div>
+            <strong>◎</strong>
+            <span>
+                <b>Global Reach</b>
+                Menschen, Plattformen und Möglichkeiten.
+            </span>
+        </div>
+
+        <div>
+            <strong>∞</strong>
+            <span>
+                <b>One Ecosystem</b>
+                Drei Plattformen. Eine Vision.
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    class="about-section"
+    id="about"
+>
+
+    <div class="about-overlay"></div>
+
+    <div class="about-content">
+
+        <span class="section-label">
+            ABOUT OUR SYSTEM
+        </span>
+
+        <h2>
+            Intelligenz für eine
+            <span>digitale Zukunft</span>
+        </h2>
+
+        <p>
+            Digital Horizons verbindet spezialisierte digitale
+            Plattformen zu einem gemeinsamen technologischen
+            Ökosystem.
+        </p>
+
+        <p>
+            Unser Ansatz basiert auf künstlicher Intelligenz,
+            moderner Softwareentwicklung und der Verbindung
+            verschiedener digitaler Lebensbereiche.
+        </p>
+
+        <p>
+            Die Idee ist einfach:
+            Technologie soll Menschen unterstützen,
+            Prozesse vereinfachen und neue Möglichkeiten
+            für die Zukunft schaffen.
+        </p>
+
+        <a
+            href="#ecosystem"
+            class="hero-button"
+        >
+            Ökosystem ansehen
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    class="contact-section"
+    id="contact"
+>
+
+    <div class="contact-box">
+
+        <span class="section-label">
+            CONTACT
+        </span>
+
+        <h2>
+            Kontaktieren Sie uns
+        </h2>
+
+        <p>
+            Schreiben Sie uns. Wir freuen uns auf Ihre Nachricht.
+        </p>
+
+        <form
+            id="contactForm"
+            class="contact-form"
+        >
+
+            <label for="subject">
+                Betreff
+            </label>
+
+            <input
+                id="subject"
+                name="subject"
+                type="text"
+                maxlength="150"
+                placeholder="Betreff Ihrer Nachricht"
+                required
+            >
+
+
+            <label for="message">
+                Nachricht
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                maxlength="3500"
+                placeholder="Ihre Nachricht ..."
+                required
+            ></textarea>
+
+            <div class="message-counter">
+                <span id="wordCount">0</span> / 500 Wörter
+            </div>
+
+
+            <label for="email">
+                Ihre E-Mail
+            </label>
+
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="ihre@email.de"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="submit-button"
+            >
+                Nachricht senden
+                <span>→</span>
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-main">
+
+
+        <!-- LOGO -->
+
+        <div class="footer-brand">
+
+            <a href="index.html">
+
+                <img
+                    src="images/logo.png"
+                    alt="digital-horizons.ai"
+                    class="footer-logo"
+                >
+
+            </a>
+
+            <div>
+
+                <strong>
+                    digital-<span>horizons.ai</span>
+                </strong>
+
+                <small>
+                    UG (haftungsbeschränkt)
+                </small>
+
             </div>
 
         </div>
-    </section>
 
-    <!-- الفوتر القانوني ومعلومات Impressum -->
-    <footer class="site-footer" id="contact">
-        <div class="footer-content">
-            <div class="footer-top">
-                <!-- معلومات المالك و Impressum -->
-                <div class="footer-col">
-                    <h4>Impressum & المالك</h4>
-                    <address>
-                        <strong>NEXORA Digital</strong><br>
-                        Akhmed Ismail Saied<br>
-                        Ehndorfer Str. 130<br>
-                        24537 Neumünster<br>
-                        Deutschland
-                    </address>
-                </div>
 
-                <!-- الروابط القانونية -->
-                <div class="footer-col">
-                    <h4>الروابط القانونية (Legal)</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutz (DSGVO)</a></li>
-                        <li><a href="#">Nutzungsbedingungen (AGB)</a></li>
-                    </ul>
-                </div>
+        <!-- NAVIGATION -->
 
-                <!-- نبذة سريعة -->
-                <div class="footer-col">
-                    <h4>ديجيتال هورايزونز</h4>
-                    <p>نعمل وفق المعايير والقوانين الرقمية الأوروبية والألمانية لتقديم أقصى درجات الأمان والموثوقية لعملائنا.</p>
-                </div>
-            </div>
+        <div class="footer-column">
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 NEXORA Digital / digital-horizons.ai. جميع الحقوق محفوظة.</p>
-            </div>
+            <h4>
+                Navigation
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#ecosystem">
+                Unser Ökosystem
+            </a>
+
+            <a href="#about">
+                Über uns
+            </a>
+
+            <a href="#contact">
+                Kontakt
+            </a>
+
         </div>
-    </footer>
 
-    <script src="app.js"></script>
+
+        <!-- LEGAL -->
+
+        <div class="footer-column">
+
+            <h4>
+                Legal
+            </h4>
+
+            <button
+                type="button"
+                class="legal-button"
+                data-legal="impressum"
+            >
+                Impressum
+            </button>
+
+            <button
+                type="button"
+                class="legal-button"
+                data-legal="privacy"
+            >
+                Datenschutz (DSGVO)
+            </button>
+
+            <button
+                type="button"
+                class="legal-button"
+                data-legal="terms"
+            >
+                Nutzungsbedingungen (AGB)
+            </button>
+
+        </div>
+
+
+        <!-- PLATFORMS -->
+
+        <div class="footer-column">
+
+            <h4>
+                Plattformen
+            </h4>
+
+            <a
+                href="https://www.digital-horizons.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                digital-horizons.ai
+            </a>
+
+            <a
+                href="https://www.nexoraonline.de"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                nexoraonline.de
+            </a>
+
+            <a
+                href="https://www.sakanapp.net"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                sakanapp.net
+            </a>
+
+            <a
+                href="https://www.helpmey.net"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                helpmey.net
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 digital-horizons.ai. Alle Rechte vorbehalten.
+        </p>
+
+        <div class="footer-social">
+
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="X">X</a>
+            <a href="#" aria-label="YouTube">▶</a>
+            <a href="#" aria-label="Instagram">◎</a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     LEGAL MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="legalModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="legal-modal"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            id="legalClose"
+            aria-label="Fenster schließen"
+        >
+            ×
+        </button>
+
+        <div id="legalContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SUCCESS MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="successModal"
+    aria-hidden="true"
+>
+
+    <div class="success-modal">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            Nachricht erfolgreich gesendet
+        </h2>
+
+        <p>
+            Vielen Dank für Ihre Kontaktaufnahme.
+        </p>
+
+        <p>
+            Wir melden uns so schnell wie möglich bei Ihnen.
+        </p>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
 </body>
 </html>
