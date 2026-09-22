@@ -1,135 +1,87 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXORA - Horizons</title>
-    <!-- ربط ملف التصميم -->
+    <title>ديجيتال هورايزونز | المنصة الدولية للذكاء الاصطناعي</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ================= 1. شريط التنقل العلوي مع اللغات ================= -->
+    <!-- الهيدر العلوي -->
     <header class="main-header">
         <div class="logo-container">
-            <span class="logo-text">أى.ديجيتال - هورايزونز</span>
+            <a href="index.html" class="logo-text">ديجيتال - هورايزونز</a>
             <span class="logo-sub">حلول الذكاء الاصطناعي (الجهة المتقدمة)</span>
-
-     <nav class="nav-links">
-    <a href="index.html">الصفحة الرئيسية</a>
-    <a href="ecosystem.html">نظامنا البيئي</a>
-    <a href="about.html">حول نظامنا</a>
-    <a href="#contact">اتصل بنا</a>
-</nav>
-        <!-- قائمة تبديل اللغات -->
-        <div class="language-dropdown">
-            <button class="lang-btn">🇩🇪 Deutsch ▾</button>
-            <div class="lang-menu">
-                <a href="#">🇩🇪 Deutsch</a>
-                <a href="#">🇬🇧 English</a>
-                <a href="#">🇸🇦 العربية</a>
-            </div>
         </div>
+        
+        <nav class="nav-links">
+            <a href="index.html">الصفحة الرئيسية</a>
+            <a href="ecosystem.html">نظامنا البيئي</a>
+            <a href="explore.html">استكشف</a>
+            <a href="about.html">حول نظامنا</a>
+            <a href="#contact" id="contact-btn">اتصل بنا</a>
+        </nav>
 
-        <div class="header-btn">
-          <a href="https://www.digital-horizons.ai" target="_blank" class="explore-btn">استكشف نظامنا البيئي</a>
+        <div class="lang-selector">
+            <button class="lang-btn">🇩🇪 Deutsch ▾</button>
         </div>
     </header>
 
-    <!-- ================= 2. القسم الرئيسي والعنوان مع الفيديو ================= -->
-    <section class="hero-container">
-        <div class="hero-text">
+    <!-- القسم الرئيسي -->
+    <main class="hero-section">
+        <div class="hero-content">
             <h1>نشكل مستقبل الغد بالذكاء الاصطناعي النقي</h1>
-            <p>النظام الرسمي المتقدم للحلول الرقمية والذكاء الاصطناعي، نصمم ونطور لنجعل المستقبل بين يديك بسلاسة واحترافية.</p>
-            <div class="hero-buttons">
-         
-            </div>
+            <p>النظام الرسمي المتقدم للحلول الرقمية والذكاء الاصطناعي، نصمم ونطور لنعل المستقبل بين يديك بسلاسة واحترافية.</p>
         </div>
-
-        <div class="hero-video">
+        <div class="video-container">
             <video controls autoplay muted loop>
-                <source src="videos/presentation.mp4" type="video/mp4">
-                متصفحك لا يدعم عرض الفيديو
+                <source src="presentation.mp4" type="video/mp4">
+                متصفحك لا يدعم عرض الفيديو.
             </video>
         </div>
-    </section>
+    </main>
 
-    <!-- ================= 3. قسم البطاقات الثلاث مع الأسهم والروابط ================= -->
-    <section class="cards-section">
-        <h2 class="section-title">نظامنا البيئي المتقدم</h2>
-        
-        <div class="cards-container">
-            <!-- البطاقة الأولى: ساكن -->
-            <div class="card">
-                <div class="card-icon">🏠</div>
-                <h3>منصة ساكن</h3>
-                <p>الحل الذكي لإدارة العقارات، السكن، وتسهيل إجراءات الإقامة بذكاء وسرعة فائقة.</p>
-                <a href="https://sakanapp.net" target="_blank" class="platform-btn">زيارة منصة سكن ➔</a>
-                </a>
-            </div>
-
-            <!-- البطاقة الثانية: نيكسورا -->
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>نيكسورا ديجيتال</h3>
-                <p>تطوير الويب، الأتمتة الرقمية، وحلول الذكاء الاصطناعي المتقدمة لمشاريع المستقبل.</p>
-                <a href="https://www.nexoraonline.de" target="_blank" class="platform-btn">زيارة منصة نيكسورا ➔</a>
-                </a>
-            </div>
-
-            <!-- البطاقة الثالثة: هيلب مي -->
-            <div class="card">
-                <div class="card-icon">🌍</div>
-                <h3>منصة هيلب مي</h3>
-                <p>المساعد العالمي المتكامل لتقديم الدعم الفوري والاستشارات المتنوعة في أي وقت.</p>
-                <a href="https://helpmey.net" target="_blank" class="platform-btn">زيارة منصة هلبيمي ➔</a>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= 4. الفوتر والشريط السفلي ================= -->
-    <footer class="main-footer">
+    <!-- الفوتر القانوني ومعلومات Impressum -->
+    <footer class="site-footer" id="contact">
         <div class="footer-content">
-            <p>&copy; 2026 NEXORA Digital. جميع الحقوق محفوظة.</p>
-            <nav class="nav-links">
-    <a href="index.html">الصفحة الرئيسية</a>
-    <a href="ecosystem.html">نظامنا البيئي</a>
-    <a href="about.html">حول نظامنا</a>
-    <a href="explore.html">استكشف</a>
-    <a href="#contact">اتصل بنا</a>
-</nav>
+            <div class="footer-top">
+                <!-- معلومات المالك و Impressum -->
+                <div class="footer-col">
+                    <h4>Impressum & المالك</h4>
+                    <address>
+                        <strong>NEXORA Digital</strong><br>
+                        Akhmed Ismail Saied<br>
+                        Ehndorfer Str. 130<br>
+                        24537 Neumünster<br>
+                        Deutschland
+                    </address>
+                </div>
+
+                <!-- الروابط القانونية -->
+                <div class="footer-col">
+                    <h4>الروابط القانونية (Legal)</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz (DSGVO)</a></li>
+                        <li><a href="#">Nutzungsbedingungen (AGB)</a></li>
+                    </ul>
+                </div>
+
+                <!-- نبذة سريعة -->
+                <div class="footer-col">
+                    <h4>ديجيتال هورايزونز</h4>
+                    <p>نعمل وفق المعايير والقوانين الرقمية الأوروبية والألمانية لتقديم أقصى درجات الأمان والموثوقية لعملائنا.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 NEXORA Digital / digital-horizons.ai. جميع الحقوق محفوظة.</p>
+            </div>
         </div>
     </footer>
-<!-- ================= نافذة نموذج الاتصال المنبثقة (Popup Form) ================= -->
-    <div id="contactModal" class="modal-overlay">
-       <a href="#contact">اتصل بنا</a>
-            <span class="close-btn">&times;</span>
-            <h2>تواصل معنا</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label>عنوان الرسالة</label>
-                    <input type="text" id="msgTitle" placeholder="أدخل عنوان الرسالة هنا..." required>
-                </div>
 
-                <div class="form-group">
-                    <label>نص الرسالة</label>
-                    <textarea id="msgBody" rows="4" placeholder="اكتب تفاصيل رسالتك هنا..." required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>البريد الإلكتروني</label>
-                    <input type="email" id="msgEmail" placeholder="name@example.com" required>
-                </div>
-
-                <button type="submit" class="submit-btn">ارسل الرسالة</button>
-            </form>
-
-            <!-- رسالة النجاح المخفية تظهر بعد الإرسال -->
-            <div id="successMessage" class="success-box" style="display: none;">
-                <h3>تم استلام الرسالة، شكراً لكم</h3>
-            </div>
-        </div>
-    </div>
+    <script src="app.js"></script>
 </body>
 </html>
