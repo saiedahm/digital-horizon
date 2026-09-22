@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظامنا البيئي - NEXORA Horizons</title>
+    <!-- ربط ملف التصميم الموحد -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= شريط التنقل العلوي ================= -->
+    <header class="main-header">
+        <div class="logo-container">
+            <span class="logo-text">أى.ديجيتال - هورايزونز</span>
+            <span class="logo-sub">نظامنا البيئي المستدام</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">الصفحة الرئيسية</a>
+            <a href="about.html">حول نظامنا</a>
+        </nav>
+    </header>
+
+    <!-- ================= قسم محتوى النظام البيئي والمعرض ================= -->
+    <main class="eco-container">
+        <section class="eco-hero">
+            <h1>نظامنا البيئي: التقنية في خدمة الطبيعة</h1>
+            <p>حين يتقاطع الذكاء الاصطناعي مع نقاء الكوكب؛ نصنع معاً مستفاقاً أخضراً، نقياً، ومستداماً للأجيال القادمة.</p>
+        </section>
+
+        <!-- شبكة الصور والرسائل البيئية الست -->
+        <div class="eco-grid">
+            
+            <!-- البطاقة الأولى -->
+            <div class="eco-card">
+                <div class="eco-img-placeholder forest-bg">🌿</div>
+                <div class="eco-content">
+                    <h3>حين تتنفس الغابات بروح التقنية</h3>
+                    <p>استخدام الذكاء الاصطناعي لمراقبة حماية الغابات، الحد من التلوث، ومنع التصحر لتبقى أجيال المستقبل قادرة على استنشاق الهواء النقي.</p>
+                </div>
+            </div>
+
+            <!-- البطاقة الثانية -->
+            <div class="eco-card">
+                <div class="eco-img-placeholder ocean-bg">🌊</div>
+                <div class="eco-content">
+                    <h3>أعماق نقية.. بلا بلاستيك أو قيود</h3>
+                    <p>تنظيف البحار والمحيطات من النفايات البلاستيكية باستخدام الحلول الذكية، للحفاظ على الحياة البحرية متوازنة ونظيفة.</p>
+                </div>
+            </div>
+
+            <!-- البطاقة الثالثة -->
+            <div class="eco-card">
+                <div class="eco-img-placeholder city-bg">🏙️</div>
+                <div class="eco-content">
+                    <h3>مدن الغد الخضراء: حيث يختفي التلوث الدخاني</h3>
+                    <p>تقليل الانبعاثات الكربونية والاعتماد على الطاقة النظيفة تماماً لبناء مدن خالية من التلوث البيئي والصوتي.</p>
+                </div>
+            </div>
+
+            <!-- البطاقة الرابعة -->
+            <div class="eco-card">
+                <div class="eco-img-placeholder ice-bg">❄️</div>
+                <div class="eco-content">
+                    <h3>حراسة الجليد: بقاء الكوكب يبدأ من هنا</h3>
+                    <p>مواجهة الاحتباس الحراري والتغير المناخي وحماية القطبين لضمان استقرار مناخ الأرض وحماية الحياة البرية النادرة.</p>
+                </div>
+            </div>
+
+            <!-- البطاقة الخامسة -->
+            <div class="eco-card">
+                <div class="eco-img-placeholder sun-bg">☀️</div>
+                <div class="eco-content">
+                    <h3>طاقة الأرض النظيفة.. بلا دخان ولا رماد</h3>
+                    <p>الاستغناء التدريجي عن الوقود الأحفوري الملوث، والتحول الكامل نحو طاقة الشمس والرياح النظيفة المستدامة.</p>
+                </div>
+            </div>
+
+            <!-- البطاقة السادسة -->
+            <div class="eco-card">
+                <div class="eco-img-placeholder human-bg">🌍</div>
+                <div class="eco-content">
+                    <h3>الإنسان والطبيعة: عقد شراكة أبدي</h3>
+                    <p>التوعية الفردية والمجتمعية بأن حماية البيئة والتنوع البيولوجي هما الضمان الحقيقي لبقاء ونقاء روح البشرية على كوكب الأرض.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= الفوتر السفلي ================= -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 NEXORA Digital. جميع الحقوق محفوظة.</p>
+            <p class="eco-footer-sig">إدارة المنصات الرقمية - NEXORA Horizons</p>
+        </div>
+    </footer>
+
+</body>
+</html>
