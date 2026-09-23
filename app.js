@@ -1,9 +1,10 @@
- /* =========================================================
+/* =========================================================
    DIGITAL HORIZONS
    MAIN JAVASCRIPT
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
 
     /* =====================================================
        LANGUAGE MENU
@@ -12,148 +13,388 @@ document.addEventListener("DOMContentLoaded", () => {
     const languageButton =
         document.getElementById("languageButton");
 
+
     const languageMenu =
         document.getElementById("languageMenu");
 
 
-    if (languageButton && languageMenu) {
+    /* FIX:
+       languageButtons was previously used
+       without being declared.
+    */
 
-        languageButton.addEventListener("click", (event) => {
-
-            event.stopPropagation();
-
-            const opened =
-                languageMenu.classList.toggle("open");
-
-            languageButton.setAttribute(
-                "aria-expanded",
-                opened ? "true" : "false"
-            );
-
-        });
+    const languageButtons =
+        document.querySelectorAll(
+            ".language-menu button[data-lang]"
+        );
 
 
-        document.addEventListener("click", (event) => {
+    if (
+        languageButton &&
+        languageMenu
+    ) {
 
-            if (
-                !languageMenu.contains(event.target) &&
-                !languageButton.contains(event.target)
-            ) {
 
-                languageMenu.classList.remove("open");
+        languageButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.stopPropagation();
+
+
+                const opened =
+                    languageMenu.classList.toggle(
+                        "open"
+                    );
+
 
                 languageButton.setAttribute(
                     "aria-expanded",
-                    "false"
+                    opened
+                        ? "true"
+                        : "false"
                 );
 
             }
+        );
 
-        });
+
+        document.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    !languageMenu.contains(
+                        event.target
+                    ) &&
+                    !languageButton.contains(
+                        event.target
+                    )
+                ) {
+
+                    languageMenu.classList.remove(
+                        "open"
+                    );
+
+
+                    languageButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+        );
 
     }
+
 
 
     /* =====================================================
        LANGUAGE SELECTION
-       Uses Google Translate so the existing language menu
-       actually translates the visible page without changing
-       the website design.
+       Google Translate
     ===================================================== */
 
     const supportedLanguages = [
-        "de","en","fr","es","it","pt","nl","da","sv","no","fi",
-        "pl","cs","sk","hu","ro","bg","el","tr","ru","uk","ar",
-        "he","fa","hi","bn","ur","zh-CN","ja","ko","vi","th","id"
+
+        "de",
+        "en",
+        "fr",
+        "es",
+        "it",
+        "pt",
+        "nl",
+        "da",
+        "sv",
+        "no",
+        "fi",
+        "pl",
+        "cs",
+        "sk",
+        "hu",
+        "ro",
+        "bg",
+        "el",
+        "tr",
+        "ru",
+        "uk",
+        "ar",
+        "he",
+        "fa",
+        "hi",
+        "bn",
+        "ur",
+        "zh-CN",
+        "ja",
+        "ko",
+        "vi",
+        "th",
+        "id"
+
     ];
 
-    let googleTranslateReady = false;
 
-    window.googleTranslateElementInit = function () {
-        if (!window.google || !google.translate) return;
+    window.googleTranslateElementInit =
+        function () {
 
-        new google.translate.TranslateElement(
-            {
-                pageLanguage: "de",
-                includedLanguages: supportedLanguages.join(","),
-                autoDisplay: false
-            },
-            "google_translate_element"
-        );
 
-        googleTranslateReady = true;
-    };
+            if (
+                !window.google ||
+                !google.translate
+            ) {
 
-    const googleScript = document.createElement("script");
-    googleScript.src =
-        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    googleScript.async = true;
-    document.head.appendChild(googleScript);
+                return;
 
-    function applyLanguage(lang) {
-        document.documentElement.lang = lang;
+            }
 
-        if (["ar", "he", "fa", "ur"].includes(lang)) {
-            document.documentElement.dir = "rtl";
-        } else {
-            document.documentElement.dir = "ltr";
-        }
 
-        const selectLanguage = () => {
-            const combo = document.querySelector(".goog-te-combo");
+            new google.translate.TranslateElement(
 
-            if (!combo) return false;
+                {
 
-            combo.value = lang;
-            combo.dispatchEvent(new Event("change"));
+                    pageLanguage: "de",
 
-            return true;
+                    includedLanguages:
+                        supportedLanguages.join(","),
+
+                    autoDisplay: false
+
+                },
+
+                "google_translate_element"
+
+            );
+
         };
 
-        if (lang === "de") {
-            // Reset Google Translate back to the original German page.
-            const combo = document.querySelector(".goog-te-combo");
-            if (combo) {
-                combo.value = "de";
-                combo.dispatchEvent(new Event("change"));
-            } else {
-                // Reloading is the most reliable reset on static hosting.
-                window.location.reload();
-            }
-            return;
+
+
+    const googleScript =
+        document.createElement(
+            "script"
+        );
+
+
+    googleScript.src =
+        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+
+
+    googleScript.async = true;
+
+
+    document.head.appendChild(
+        googleScript
+    );
+
+
+
+    function applyLanguage(lang) {
+
+
+        document.documentElement.lang =
+            lang;
+
+
+
+        if (
+            [
+                "ar",
+                "he",
+                "fa",
+                "ur"
+            ].includes(lang)
+        ) {
+
+            document.documentElement.dir =
+                "rtl";
+
+        } else {
+
+            document.documentElement.dir =
+                "ltr";
+
         }
 
-        if (selectLanguage()) return;
+
+
+        const selectLanguage =
+            () => {
+
+
+                const combo =
+                    document.querySelector(
+                        ".goog-te-combo"
+                    );
+
+
+                if (!combo) {
+
+                    return false;
+
+                }
+
+
+                combo.value =
+                    lang;
+
+
+                combo.dispatchEvent(
+                    new Event("change")
+                );
+
+
+                return true;
+
+            };
+
+
+
+        /* German = original language */
+
+        if (
+            lang === "de"
+        ) {
+
+
+            const combo =
+                document.querySelector(
+                    ".goog-te-combo"
+                );
+
+
+            if (combo) {
+
+                combo.value =
+                    "de";
+
+
+                combo.dispatchEvent(
+                    new Event("change")
+                );
+
+            } else {
+
+                window.location.reload();
+
+            }
+
+
+            return;
+
+        }
+
+
+
+        if (
+            selectLanguage()
+        ) {
+
+            return;
+
+        }
+
+
 
         let attempts = 0;
-        const timer = setInterval(() => {
-            attempts++;
 
-            if (selectLanguage() || attempts >= 40) {
-                clearInterval(timer);
-            }
-        }, 250);
+
+        const timer =
+            setInterval(
+                () => {
+
+
+                    attempts++;
+
+
+                    if (
+                        selectLanguage() ||
+                        attempts >= 40
+                    ) {
+
+                        clearInterval(
+                            timer
+                        );
+
+                    }
+
+                },
+                250
+            );
+
     }
 
-    languageButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const lang = button.dataset.lang;
-            const languageName = button.textContent.trim();
 
-            if (languageButton) {
-                languageButton.innerHTML =
-                    `${languageName} <span>▾</span>`;
-            }
 
-            if (languageMenu) {
-                languageMenu.classList.remove("open");
-            }
+    /* =====================================================
+       LANGUAGE BUTTONS
+    ===================================================== */
 
-            if (supportedLanguages.includes(lang)) {
-                applyLanguage(lang);
-            }
-        });
-    });
+    languageButtons.forEach(
+        (button) => {
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+
+                    const lang =
+                        button.dataset.lang;
+
+
+                    const languageName =
+                        button.textContent.trim();
+
+
+
+                    if (
+                        languageButton
+                    ) {
+
+                        languageButton.innerHTML =
+                            `${languageName} <span>▾</span>`;
+
+                    }
+
+
+
+                    if (
+                        languageMenu
+                    ) {
+
+                        languageMenu.classList.remove(
+                            "open"
+                        );
+
+
+                        languageButton?.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+
+
+
+                    if (
+                        supportedLanguages.includes(
+                            lang
+                        )
+                    ) {
+
+                        applyLanguage(
+                            lang
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
 
 
     /* =====================================================
@@ -161,101 +402,172 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const message =
-        document.getElementById("message");
+        document.getElementById(
+            "message"
+        );
+
 
     const wordCount =
-        document.getElementById("wordCount");
+        document.getElementById(
+            "wordCount"
+        );
 
 
-    if (message && wordCount) {
 
-        message.addEventListener("input", () => {
-
-            let text =
-                message.value.trim();
-
-            let words =
-                text
-                    ? text.split(/\s+/).length
-                    : 0;
+    if (
+        message &&
+        wordCount
+    ) {
 
 
-            /*
-             * Hard limit: 500 words
-             */
+        message.addEventListener(
+            "input",
+            () => {
 
-            if (words > 500) {
 
-                const limitedWords =
+                let text =
+                    message.value.trim();
+
+
+                let words =
                     text
-                        .split(/\s+/)
-                        .slice(0, 500)
-                        .join(" ");
+                        ? text.split(/\s+/).length
+                        : 0;
 
-                message.value =
-                    limitedWords;
 
-                words = 500;
+
+                /* Maximum 500 words */
+
+                if (
+                    words > 500
+                ) {
+
+
+                    const limitedWords =
+                        text
+                            .split(/\s+/)
+                            .slice(0, 500)
+                            .join(" ");
+
+
+                    message.value =
+                        limitedWords;
+
+
+                    words =
+                        500;
+
+                }
+
+
+
+                wordCount.textContent =
+                    words;
+
             }
-
-            wordCount.textContent =
-                words;
-
-        });
+        );
 
     }
 
 
+
     /* =====================================================
        CONTACT FORM
+       
+       IMPORTANT:
+       GitHub Pages is static hosting.
+       Therefore mailto: is used here.
+       
+       The visitor's email application will open
+       with both company addresses.
     ===================================================== */
 
     const contactForm =
-        document.getElementById("contactForm");
+        document.getElementById(
+            "contactForm"
+        );
+
 
     const successModal =
-        document.getElementById("successModal");
+        document.getElementById(
+            "successModal"
+        );
 
 
-    if (contactForm) {
+
+    if (
+        contactForm
+    ) {
+
 
         contactForm.addEventListener(
             "submit",
             (event) => {
 
+
                 event.preventDefault();
 
 
+
+                const subjectElement =
+                    document.getElementById(
+                        "subject"
+                    );
+
+
+                const messageElement =
+                    document.getElementById(
+                        "message"
+                    );
+
+
+                const emailElement =
+                    document.getElementById(
+                        "email"
+                    );
+
+
+
                 const subject =
-                    document
-                        .getElementById("subject")
-                        .value
-                        .trim();
+                    subjectElement
+                        ? subjectElement.value.trim()
+                        : "";
+
 
                 const messageValue =
-                    document
-                        .getElementById("message")
-                        .value
-                        .trim();
+                    messageElement
+                        ? messageElement.value.trim()
+                        : "";
+
 
                 const email =
-                    document
-                        .getElementById("email")
-                        .value
-                        .trim();
+                    emailElement
+                        ? emailElement.value.trim()
+                        : "";
 
 
-                if (!subject ||
+
+                /* Required fields */
+
+                if (
+                    !subject ||
                     !messageValue ||
-                    !email) {
+                    !email
+                ) {
+
+
+                    alert(
+                        "Bitte füllen Sie alle Felder aus."
+                    );
+
 
                     return;
+
                 }
 
 
-                /*
-                 * Verify word count.
-                 */
+
+                /* Word limit */
 
                 const words =
                     messageValue
@@ -263,68 +575,155 @@ document.addEventListener("DOMContentLoaded", () => {
                         .filter(Boolean);
 
 
-                if (words.length > 500) {
+
+                if (
+                    words.length > 500
+                ) {
+
 
                     alert(
                         "Die Nachricht darf maximal 500 Wörter enthalten."
                     );
 
+
                     return;
+
                 }
+
+
+
+                /* =================================================
+                   COMPANY EMAILS
+                ================================================== */
+
+                const recipients =
+                    "contact@nexoraonline.de,info@nexoraonline.de";
+
+
+
+                /* =================================================
+                   EMAIL SUBJECT
+                ================================================== */
+
+                const emailSubject =
+                    encodeURIComponent(
+                        subject
+                    );
+
+
+
+                /* =================================================
+                   EMAIL BODY
+                ================================================== */
+
+                const emailBody =
+                    encodeURIComponent(
+
+                        "Neue Nachricht über digital-horizons.ai\n\n" +
+
+                        "Absender: " +
+                        email +
+                        "\n\n" +
+
+                        "Betreff:\n" +
+                        subject +
+                        "\n\n" +
+
+                        "Nachricht:\n" +
+                        messageValue +
+                        "\n\n" +
+
+                        "Website:\n" +
+                        window.location.href
+
+                    );
+
+
+
+                /* =================================================
+                   MAILTO
+                ================================================== */
+
+                const mailtoUrl =
+                    `mailto:${recipients}?subject=${emailSubject}&body=${emailBody}`;
+
 
 
                 /*
-                 * The interface is ready.
-                 *
-                 * IMPORTANT:
-                 * To deliver the email for real, connect this
-                 * form to your email/API endpoint.
+                 * Open visitor email application.
                  */
+
+                window.location.href =
+                    mailtoUrl;
+
+
+
+                /* Reset form */
 
                 contactForm.reset();
 
-                if (wordCount) {
-                    wordCount.textContent = "0";
+
+
+                if (
+                    wordCount
+                ) {
+
+                    wordCount.textContent =
+                        "0";
+
                 }
 
 
-                if (successModal) {
 
-                    successModal.classList.add("open");
+                /* =================================================
+                   SUCCESS MESSAGE
+                ================================================== */
+
+                if (
+                    successModal
+                ) {
+
+
+                    successModal.classList.add(
+                        "open"
+                    );
+
 
                     successModal.setAttribute(
                         "aria-hidden",
                         "false"
                     );
 
+
                     document.body.classList.add(
                         "modal-open"
                     );
 
 
-                    /*
-                     * Automatically return to homepage.
-                     */
 
-                    setTimeout(() => {
+                    setTimeout(
+                        () => {
 
-                        successModal.classList.remove("open");
 
-                        successModal.setAttribute(
-                            "aria-hidden",
-                            "true"
-                        );
+                            successModal.classList.remove(
+                                "open"
+                            );
 
-                        document.body.classList.remove(
-                            "modal-open"
-                        );
 
-                        window.scrollTo({
-                            top: 0,
-                            behavior: "smooth"
-                        });
+                            successModal.setAttribute(
+                                "aria-hidden",
+                                "true"
+                            );
 
-                    }, 2800);
+
+                            document.body.classList.remove(
+                                "modal-open"
+                            );
+
+
+                        },
+                        4000
+                    );
 
                 }
 
@@ -334,30 +733,55 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     /* =====================================================
        LEGAL MODALS
     ===================================================== */
 
     const legalModal =
-        document.getElementById("legalModal");
+        document.getElementById(
+            "legalModal"
+        );
+
 
     const legalContent =
-        document.getElementById("legalContent");
+        document.getElementById(
+            "legalContent"
+        );
+
 
     const legalClose =
-        document.getElementById("legalClose");
+        document.getElementById(
+            "legalClose"
+        );
+
 
 
     const legalTexts = {
 
-        impressum: `
-            <h2>Impressum</h2>
 
-            <h3>Angaben zum Anbieter</h3>
+        /* =================================================
+           IMPRESSUM
+        ================================================= */
+
+        impressum: `
+
+            <h2>
+                Impressum
+            </h2>
+
+
+            <h3>
+                Angaben zum Anbieter
+            </h3>
+
 
             <p>
-                <strong>NEXORA Digital</strong>
+                <strong>
+                    Digital Horizons UG (haftungsbeschränkt)
+                </strong>
             </p>
+
 
             <p>
                 Akhmed Ismail Saied<br>
@@ -366,25 +790,52 @@ document.addEventListener("DOMContentLoaded", () => {
                 Deutschland
             </p>
 
-            <h3>Kontakt</h3>
+
+            <h3>
+                Kontakt
+            </h3>
+
 
             <p>
-                Die vollständigen Kontaktdaten werden
-                entsprechend den gesetzlichen Anforderungen
-                innerhalb des Impressums bereitgestellt.
+                E-Mail:
+                <a href="mailto:contact@nexoraonline.de">
+                    contact@nexoraonline.de
+                </a>
             </p>
+
+
+            <p>
+                Info:
+                <a href="mailto:info@nexoraonline.de">
+                    info@nexoraonline.de
+                </a>
+            </p>
+
         `,
 
 
+
+        /* =================================================
+           PRIVACY
+        ================================================== */
+
         privacy: `
-            <h2>Datenschutz (DSGVO)</h2>
+
+            <h2>
+                Datenschutz (DSGVO)
+            </h2>
+
 
             <p>
                 Der Schutz personenbezogener Daten ist ein
                 wichtiger Bestandteil unseres digitalen Angebots.
             </p>
 
-            <h3>Personenbezogene Daten</h3>
+
+            <h3>
+                Personenbezogene Daten
+            </h3>
+
 
             <p>
                 Personenbezogene Daten werden nur verarbeitet,
@@ -393,34 +844,82 @@ document.addEventListener("DOMContentLoaded", () => {
                 gesetzlichen Grundlage erforderlich ist.
             </p>
 
-            <h3>Kontaktformular</h3>
+
+            <h3>
+                Kontaktformular
+            </h3>
+
 
             <p>
-                Angaben aus dem Kontaktformular werden ausschließlich
-                zur Bearbeitung der jeweiligen Anfrage verwendet,
-                sobald das Formular mit einem tatsächlichen
-                E-Mail-Dienst verbunden ist.
+                Die über das Kontaktformular eingegebenen
+                Informationen werden zur Bearbeitung der
+                jeweiligen Anfrage verwendet.
             </p>
 
-            <h3>Ihre Rechte</h3>
+
+            <h3>
+                Kontakt-E-Mail
+            </h3>
+
 
             <p>
-                Betroffene Personen haben nach Maßgabe der DSGVO
-                unter anderem Rechte auf Auskunft, Berichtigung,
-                Löschung und Einschränkung der Verarbeitung.
+                Für Kontaktanfragen stehen folgende
+                E-Mail-Adressen zur Verfügung:
             </p>
+
+
+            <p>
+
+                <a href="mailto:contact@nexoraonline.de">
+                    contact@nexoraonline.de
+                </a>
+
+                <br>
+
+                <a href="mailto:info@nexoraonline.de">
+                    info@nexoraonline.de
+                </a>
+
+            </p>
+
+
+            <h3>
+                Ihre Rechte
+            </h3>
+
+
+            <p>
+                Betroffene Personen haben nach Maßgabe
+                der DSGVO unter anderem Rechte auf Auskunft,
+                Berichtigung, Löschung und Einschränkung
+                der Verarbeitung.
+            </p>
+
         `,
 
 
+
+        /* =================================================
+           TERMS
+        ================================================== */
+
         terms: `
-            <h2>Nutzungsbedingungen (AGB)</h2>
+
+            <h2>
+                Nutzungsbedingungen (AGB)
+            </h2>
+
 
             <p>
                 Die Nutzung dieser Website erfolgt auf Grundlage
                 der jeweils geltenden gesetzlichen Bestimmungen.
             </p>
 
-            <h3>Nutzung der Inhalte</h3>
+
+            <h3>
+                Nutzung der Inhalte
+            </h3>
+
 
             <p>
                 Inhalte dieser Website dürfen nicht ohne
@@ -429,7 +928,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 soweit gesetzlich nichts anderes vorgesehen ist.
             </p>
 
-            <h3>Externe Plattformen</h3>
+
+            <h3>
+                Externe Plattformen
+            </h3>
+
 
             <p>
                 Links zu externen Plattformen führen zu
@@ -437,44 +940,71 @@ document.addEventListener("DOMContentLoaded", () => {
                 Für deren Inhalte und Datenschutzbestimmungen
                 gelten die jeweiligen Betreiberbedingungen.
             </p>
+
         `
 
     };
 
 
+
+    /* =====================================================
+       OPEN LEGAL MODALS
+    ===================================================== */
+
     document
-        .querySelectorAll(".legal-button")
-        .forEach(button => {
+        .querySelectorAll(
+            ".legal-button"
+        )
+        .forEach(
+            (button) => {
 
-            button.addEventListener("click", () => {
 
-                const type =
-                    button.dataset.legal;
+                button.addEventListener(
+                    "click",
+                    () => {
 
-                if (
-                    legalContent &&
-                    legalTexts[type]
-                ) {
 
-                    legalContent.innerHTML =
-                        legalTexts[type];
+                        const type =
+                            button.dataset.legal;
 
-                    legalModal.classList.add("open");
 
-                    legalModal.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
 
-                    document.body.classList.add(
-                        "modal-open"
-                    );
+                        if (
+                            legalContent &&
+                            legalTexts[type]
+                        ) {
 
-                }
 
-            });
+                            legalContent.innerHTML =
+                                legalTexts[type];
 
-        });
+
+
+                            legalModal.classList.add(
+                                "open"
+                            );
+
+
+
+                            legalModal.setAttribute(
+                                "aria-hidden",
+                                "false"
+                            );
+
+
+
+                            document.body.classList.add(
+                                "modal-open"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
 
 
     /* =====================================================
@@ -483,12 +1013,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function closeLegalModal() {
 
-        legalModal.classList.remove("open");
+
+        if (
+            !legalModal
+        ) {
+
+            return;
+
+        }
+
+
+        legalModal.classList.remove(
+            "open"
+        );
+
 
         legalModal.setAttribute(
             "aria-hidden",
             "true"
         );
+
 
         document.body.classList.remove(
             "modal-open"
@@ -497,7 +1041,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    if (legalClose) {
+
+    if (
+        legalClose
+    ) {
+
 
         legalClose.addEventListener(
             "click",
@@ -507,15 +1055,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    if (legalModal) {
+
+    if (
+        legalModal
+    ) {
+
 
         legalModal.addEventListener(
             "click",
             (event) => {
 
+
                 if (
-                    event.target === legalModal
+                    event.target ===
+                    legalModal
                 ) {
+
 
                     closeLegalModal();
 
@@ -527,6 +1082,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     /* =====================================================
        ESCAPE KEY
     ===================================================== */
@@ -535,20 +1091,31 @@ document.addEventListener("DOMContentLoaded", () => {
         "keydown",
         (event) => {
 
-            if (event.key === "Escape") {
+
+            if (
+                event.key === "Escape"
+            ) {
+
 
                 closeLegalModal();
 
-                if (successModal) {
+
+
+                if (
+                    successModal
+                ) {
+
 
                     successModal.classList.remove(
                         "open"
                     );
 
+
                     successModal.setAttribute(
                         "aria-hidden",
                         "true"
                     );
+
 
                     document.body.classList.remove(
                         "modal-open"
@@ -562,48 +1129,72 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+
     /* =====================================================
        INTERNAL NAVIGATION
     ===================================================== */
 
     document
-        .querySelectorAll('a[href^="#"]')
-        .forEach(link => {
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(
+            (link) => {
 
-            link.addEventListener(
-                "click",
-                event => {
 
-                    const targetId =
-                        link.getAttribute("href");
+                link.addEventListener(
+                    "click",
+                    (event) => {
 
-                    if (
-                        targetId === "#" ||
-                        targetId === "#!"
-                    ) {
 
-                        return;
+                        const targetId =
+                            link.getAttribute(
+                                "href"
+                            );
+
+
+
+                        if (
+                            targetId === "#" ||
+                            targetId === "#!"
+                        ) {
+
+                            return;
+
+                        }
+
+
+
+                        const target =
+                            document.querySelector(
+                                targetId
+                            );
+
+
+
+                        if (
+                            target
+                        ) {
+
+
+                            event.preventDefault();
+
+
+
+                            target.scrollIntoView(
+                                {
+                                    behavior: "smooth",
+                                    block: "start"
+                                }
+                            );
+
+                        }
+
                     }
+                );
 
-                    const target =
-                        document.querySelector(
-                            targetId
-                        );
+            }
+        );
 
-                    if (target) {
 
-                        event.preventDefault();
-
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-
-                    }
-
-                }
-            );
-
-        });
-
-});
+}); 
