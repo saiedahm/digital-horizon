@@ -1,5 +1,4 @@
- 
-/* =========================================================
+ /* =========================================================
    DIGITAL HORIZONS AI — STYLE.CSS
    Premium Blue / Gold / Cyan Ecosystem
 ========================================================= */
@@ -26,9 +25,15 @@ html {
 }
 
 body {
+    margin: 0;
     font-family: "Inter", "Cairo", Arial, sans-serif;
     background:
-        radial-gradient(ellipse at 50% 0%, #062b55 0%, #020914 50%, #00040a 100%);
+        radial-gradient(
+            ellipse at 50% 0%,
+            #062b55 0%,
+            #020914 50%,
+            #00040a 100%
+        );
     color: var(--text);
     overflow-x: hidden;
 }
@@ -53,11 +58,14 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* ==================== HEADER ==================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .main-header {
     position: relative;
     z-index: 1000;
+    width: 100%;
     background: rgba(1, 8, 20, .96);
     border-bottom: 1px solid rgba(0, 210, 255, .35);
 }
@@ -171,7 +179,9 @@ a {
     font-size: 18px;
 }
 
-/* ==================== LANGUAGE MENU ==================== */
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
 
 .language-wrapper {
     position: relative;
@@ -187,10 +197,12 @@ a {
     background: transparent;
     color: white;
     cursor: pointer;
+    transition: .25s ease;
 }
 
 .lang-btn:hover {
     background: rgba(0, 210, 255, .12);
+    box-shadow: 0 0 12px rgba(0, 210, 255, .25);
 }
 
 .language-menu {
@@ -222,6 +234,7 @@ a {
     color: white;
     text-align: left;
     cursor: pointer;
+    transition: .2s ease;
 }
 
 .language-menu button:hover {
@@ -229,7 +242,9 @@ a {
     color: var(--cyan);
 }
 
-/* ==================== HERO ==================== */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero-section {
     position: relative;
@@ -237,20 +252,46 @@ a {
     padding: 65px 20px 80px;
     text-align: center;
     overflow: hidden;
+
     background:
-        radial-gradient(ellipse at center top, rgba(0, 120, 255, .55), transparent 55%),
-     url("about-ai.jpg") center / cover no-repeat;
+        radial-gradient(
+            ellipse at center top,
+            rgba(0, 120, 255, .55),
+            transparent 55%
+        ),
+        url("about-ai.jpg") center / cover no-repeat;
+}
+
+/*
+   WICHTIG:
+   Dieser schließende Bereich war im ursprünglichen
+   CSS fehlend. Dadurch wurde der Rest der CSS-Regeln
+   falsch interpretiert.
+*/
 
 .hero-background {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0, 3, 10, .85));
+    z-index: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 3, 10, .25) 45%,
+            rgba(0, 3, 10, .85) 100%
+        );
+    pointer-events: none;
 }
 
 .hero-content,
 .video-container {
     position: relative;
     z-index: 2;
+}
+
+.hero-content {
+    width: min(1100px, 100%);
+    margin: auto;
 }
 
 .hero-logo {
@@ -298,7 +339,10 @@ a {
     overflow: hidden;
     border: 1px solid rgba(0, 208, 255, .7);
     border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0, 183, 255, .3);
+    background: #000;
+    box-shadow:
+        0 0 25px rgba(0, 183, 255, .3),
+        0 0 60px rgba(0, 100, 255, .12);
 }
 
 .video-container video {
@@ -308,7 +352,9 @@ a {
     object-fit: cover;
 }
 
-/* ==================== SECTIONS ==================== */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .ecosystem-section,
 .contact-section {
@@ -340,7 +386,9 @@ a {
     line-height: 1.8;
 }
 
-/* ==================== PLATFORM CARDS ==================== */
+/* =========================================================
+   PLATFORM CARDS
+========================================================= */
 
 .platforms-grid {
     width: min(1250px, 100%);
@@ -353,8 +401,15 @@ a {
 .platform-card {
     overflow: hidden;
     border-radius: 20px;
-    background: linear-gradient(145deg, rgba(8, 22, 43, .95), rgba(1, 7, 16, .98));
-    transition: transform .3s ease, box-shadow .3s ease;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 22, 43, .95),
+            rgba(1, 7, 16, .98)
+        );
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .platform-card:hover {
@@ -422,7 +477,9 @@ a {
     margin-top: 22px;
 }
 
-/* ==================== FEATURES ==================== */
+/* =========================================================
+   FEATURES
+========================================================= */
 
 .ecosystem-features {
     width: min(1250px, 100%);
@@ -462,7 +519,9 @@ a {
     line-height: 1.5;
 }
 
-/* ==================== ABOUT ==================== */
+/* =========================================================
+   ABOUT
+========================================================= */
 
 .about-section {
     position: relative;
@@ -470,15 +529,27 @@ a {
     display: flex;
     align-items: center;
     padding: 100px 7%;
+
     background:
-        linear-gradient(90deg, rgba(0, 5, 15, .96), rgba(0, 7, 18, .65), rgba(0, 5, 15, .9)),
-      url("about-ai.jpg") center / cover no-repeat;
+        linear-gradient(
+            90deg,
+            rgba(0, 5, 15, .96),
+            rgba(0, 7, 18, .65),
+            rgba(0, 5, 15, .9)
+        ),
+        url("about-ai.jpg") center / cover no-repeat;
 }
 
 .about-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 75% 50%, rgba(0, 140, 255, .15), transparent 45%);
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(0, 140, 255, .15),
+            transparent 45%
+        );
+    pointer-events: none;
 }
 
 .about-content {
@@ -502,10 +573,17 @@ a {
     line-height: 1.8;
 }
 
-/* ==================== CONTACT ==================== */
+/* =========================================================
+   CONTACT
+========================================================= */
 
 .contact-section {
-    background: radial-gradient(circle at center, rgba(0, 120, 255, .16), transparent 60%);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 120, 255, .16),
+            transparent 60%
+        );
 }
 
 .contact-box {
@@ -539,6 +617,12 @@ a {
     outline: none;
     color: white;
     background: rgba(0, 10, 24, .8);
+    transition: .25s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #6e8da2;
 }
 
 .contact-form input:focus,
@@ -565,10 +649,18 @@ a {
     cursor: pointer;
 }
 
-/* ==================== FOOTER ==================== */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer {
-    background: #01060e;
+    position: relative;
+    background:
+        linear-gradient(
+            180deg,
+            #01060e 0%,
+            #00040a 100%
+        );
     border-top: 1px solid rgba(0, 210, 255, .3);
 }
 
@@ -592,7 +684,8 @@ a {
     height: 72px;
     object-fit: contain;
     border-radius: 50%;
-    filter: drop-shadow(0 0 15px rgba(0, 210, 255, .5));
+    filter:
+        drop-shadow(0 0 15px rgba(0, 210, 255, .5));
 }
 
 .footer-brand strong {
@@ -626,12 +719,14 @@ a {
     background: none;
     border: 0;
     cursor: pointer;
-    transition: .2s;
+    transition: .2s ease;
+    text-align: left;
 }
 
 .footer-column a:hover,
 .legal-button:hover {
     color: var(--cyan);
+    transform: translateX(2px);
 }
 
 .footer-bottom {
@@ -658,9 +753,19 @@ a {
     place-items: center;
     border: 1px solid rgba(0, 210, 255, .35);
     border-radius: 50%;
+    transition: .25s ease;
 }
 
-/* ==================== MODALS ==================== */
+.footer-social a:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px rgba(0, 210, 255, .3);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   MODALS
+========================================================= */
 
 .modal-overlay {
     position: fixed;
@@ -687,7 +792,12 @@ a {
     padding: 45px;
     border: 1px solid rgba(0, 210, 255, .5);
     border-radius: 20px;
-    background: linear-gradient(145deg, #06182c, #010914);
+    background:
+        linear-gradient(
+            145deg,
+            #06182c,
+            #010914
+        );
     box-shadow: 0 0 50px rgba(0, 160, 255, .25);
 }
 
@@ -703,10 +813,13 @@ a {
     color: white;
     font-size: 27px;
     cursor: pointer;
+    transition: .2s ease;
 }
 
 .modal-close:hover {
     color: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px rgba(0, 210, 255, .25);
 }
 
 .legal-modal h2 {
@@ -751,7 +864,9 @@ a {
     line-height: 1.7;
 }
 
-/* ==================== RESPONSIVE ==================== */
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
 
 @media (max-width: 1050px) {
 
@@ -777,6 +892,10 @@ a {
     }
 }
 
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
 @media (max-width: 760px) {
 
     .header-inner {
@@ -800,6 +919,11 @@ a {
         justify-content: center;
         overflow-x: auto;
         padding-bottom: 10px;
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-links a {
@@ -807,9 +931,14 @@ a {
         font-size: 12px;
     }
 
+    .language-wrapper {
+        margin-left: auto;
+    }
+
     .hero-section {
         min-height: auto;
         padding-top: 45px;
+        padding-bottom: 55px;
     }
 
     .hero-logo {
@@ -821,8 +950,23 @@ a {
         font-size: 28px;
     }
 
+    .hero-content p {
+        font-size: 15px;
+    }
+
     .video-container {
+        width: 100%;
         margin-top: 30px;
+        border-radius: 14px;
+    }
+
+    .video-container video {
+        max-height: 420px;
+    }
+
+    .ecosystem-section,
+    .contact-section {
+        padding: 65px 5%;
     }
 
     .ecosystem-features {
@@ -832,6 +976,15 @@ a {
     .ecosystem-features > div {
         border-right: 0;
         border-bottom: 1px solid rgba(0, 200, 255, .15);
+    }
+
+    .ecosystem-features > div:last-child {
+        border-bottom: 0;
+    }
+
+    .about-section {
+        min-height: 520px;
+        padding: 75px 6%;
     }
 
     .footer-main {
@@ -849,9 +1002,75 @@ a {
     .legal-modal {
         padding: 30px 20px;
     }
+
+    .language-menu {
+        right: -40px;
+        width: 220px;
+    }
 }
 
-/* ==================== GOOGLE TRANSLATE (hidden UI) ==================== */
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .header-inner {
+        width: 92%;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .brand-text small {
+        font-size: 8px;
+    }
+
+    .header-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .lang-btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .platform-body {
+        padding: 22px;
+    }
+
+    .platform-body h3 {
+        font-size: 27px;
+    }
+
+    .contact-box {
+        padding: 25px 17px;
+    }
+
+    .legal-modal,
+    .success-modal {
+        padding: 35px 18px;
+    }
+}
+
+/* =========================================================
+   GOOGLE TRANSLATE — HIDDEN UI
+========================================================= */
+
 #google_translate_element {
     position: fixed;
     left: -10000px;
@@ -862,11 +1081,43 @@ a {
     opacity: 0;
     pointer-events: none;
 }
+
 .goog-te-banner-frame,
 .goog-te-balloon-frame,
 .goog-te-menu-frame {
     display: none !important;
 }
+
 body {
     top: 0 !important;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #01060e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 210, 255, .45);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan);
+}
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(0, 217, 255, .25);
+    color: white;
 }
