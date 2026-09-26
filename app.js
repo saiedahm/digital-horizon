@@ -925,38 +925,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const legalTexts = {
 
-        impressum: `
-            <h2>Impressum</h2>
+       impressum: `
+  <h2>Impressum</h2>
 
-            <h3>Angaben zum Anbieter</h3>
+  <h3>Angaben zum Anbieter</h3>
 
-            <p>
-                <strong>
-                    Digital Horizons UG (haftungsbeschränkt)
-                </strong>
-            </p>
+  <p>
+    <strong>Rechtsname / Vollständiger Name:</strong><br>
+    Akhmed Ismail Saied
+  </p>
 
-            <p>
-                Bitte verwenden Sie hier Ihre bereits
-                vorhandenen Anbieter- und Kontaktdaten.
-            </p>
+  <p>
+    <strong>Firmenname:</strong><br>
+    digital horizons
+  </p>
 
-            <h3>Kontakt</h3>
+  <p>
+    <strong>Vollständige Adresse:</strong><br>
+    Ehndofer Str. 130<br>
+    24537 Neumünster<br>
+    Deutschland
+  </p>
 
-            <p>
-                E-Mail:
-                <a href="mailto:contact@nexoraonline.de">
-                    contact@nexoraonline.de
-                </a>
-            </p>
+  <p>
+    <strong>Website:</strong><br>
+    <a href="https://www.digital-horizon.ai"
+       target="_blank"
+       rel="noopener noreferrer">
+       www.digital-horizon.ai
+    </a>
+  </p>
 
-            <p>
-                Info:
-                <a href="mailto:info@nexoraonline.de">
-                    info@nexoraonline.de
-                </a>
-            </p>
-        `,
+  <p>
+    <strong>E-Mail:</strong><br>
+    <a href="mailto:info@nexoraonline.de">
+      info@nexoraonline.de
+    </a>
+  </p>
+
+  <p>
+    <strong>Telefon:</strong><br>
+    +49 151 23937937
+  </p>
+
+  <h3>Registerangaben</h3>
+
+  <p>
+    <strong>Handelsregisternummer:</strong><br>
+    Nicht angegeben
+  </p>
+
+  <p>
+    <strong>USt-IdNr.:</strong><br>
+    Nicht angegeben
+  </p>
+
+  <h3>Status der Plattform</h3>
+
+  <p>
+    Die Plattform befindet sich derzeit in der Testphase.
+  </p>
+`,,
 
 
         privacy: `
