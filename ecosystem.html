@@ -1,100 +1,947 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظامنا البيئي - NEXORA Horizons</title>
-    <!-- ربط ملف التصميم الموحد -->
+
+    <title>نظامنا البيئي | Digital Horizons</title>
+
+    <meta
+        name="description"
+        content="نظامنا البيئي: التقنية والذكاء الاصطناعي في خدمة الطبيعة والاستدامة."
+    >
+
+    <!-- الملف الأصلي للموقع -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- ================= تصميم صفحة النظام البيئي فقط ================= -->
+    <style>
+        .eco-page {
+            min-height: 100vh;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 15, 25, 0.96),
+                    rgba(8, 25, 32, 0.94)
+                );
+            color: #ffffff;
+            font-family: Arial, "Segoe UI", sans-serif;
+        }
+
+        /* ================= Header ================= */
+
+        .eco-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+
+            padding: 14px 5%;
+
+            background: rgba(5, 15, 25, 0.90);
+            backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .eco-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .eco-logo {
+            width: 62px;
+            height: 62px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 2px solid rgba(255, 255, 255, 0.30);
+
+            box-shadow:
+                0 0 25px rgba(0, 220, 180, 0.22);
+
+            background: #ffffff;
+        }
+
+        .eco-brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .eco-brand-title {
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .eco-brand-subtitle {
+            font-size: 12px;
+            opacity: 0.65;
+        }
+
+        .eco-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .eco-nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 42px;
+            padding: 0 18px;
+
+            border-radius: 999px;
+
+            color: rgba(255,255,255,0.88);
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            border: 1px solid rgba(255,255,255,0.10);
+
+            background: rgba(255,255,255,0.04);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .eco-nav a:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.10);
+            border-color: rgba(255,255,255,0.24);
+        }
+
+        .eco-nav a.active {
+            background: rgba(0, 210, 170, 0.16);
+            border-color: rgba(0, 230, 190, 0.45);
+            color: #ffffff;
+        }
+
+        /* ================= Hero ================= */
+
+        .eco-hero {
+            position: relative;
+
+            min-height: 620px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 80px 6%;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 12, 20, 0.94) 0%,
+                    rgba(3, 12, 20, 0.72) 48%,
+                    rgba(3, 12, 20, 0.45) 100%
+                ),
+                url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2200&q=90")
+                center / cover no-repeat;
+        }
+
+        .eco-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(0, 230, 180, 0.14),
+                    transparent 34%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(50, 130, 255, 0.12),
+                    transparent 34%
+                );
+
+            pointer-events: none;
+        }
+
+        .eco-hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(1000px, 100%);
+
+            text-align: center;
+        }
+
+        .eco-label {
+            display: inline-flex;
+
+            padding: 9px 17px;
+            margin-bottom: 24px;
+
+            border-radius: 999px;
+
+            background: rgba(0, 220, 180, 0.12);
+            border: 1px solid rgba(0, 220, 180, 0.32);
+
+            color: #b8fff0;
+
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .eco-hero h1 {
+            margin: 0 auto 24px;
+
+            max-width: 950px;
+
+            font-size: clamp(38px, 6vw, 72px);
+            line-height: 1.08;
+
+            font-weight: 900;
+
+            text-shadow:
+                0 5px 30px rgba(0,0,0,0.45);
+        }
+
+        .eco-hero p {
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            font-size: clamp(17px, 2vw, 21px);
+            line-height: 1.9;
+
+            color: rgba(255,255,255,0.82);
+        }
+
+        /* ================= Intro ================= */
+
+        .eco-intro {
+            width: min(1100px, 90%);
+
+            margin: 0 auto;
+
+            padding: 90px 0 50px;
+
+            text-align: center;
+        }
+
+        .eco-intro h2 {
+            margin: 0 0 18px;
+
+            font-size: clamp(28px, 4vw, 46px);
+
+            font-weight: 900;
+        }
+
+        .eco-intro p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: rgba(255,255,255,0.70);
+
+            line-height: 1.9;
+
+            font-size: 17px;
+        }
+
+        /* ================= Cards ================= */
+
+        .eco-grid {
+            width: min(1250px, 90%);
+
+            margin: 0 auto;
+
+            padding: 30px 0 90px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 26px;
+        }
+
+        .eco-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            background: rgba(255,255,255,0.055);
+
+            border: 1px solid rgba(255,255,255,0.10);
+
+            box-shadow:
+                0 18px 50px rgba(0,0,0,0.22);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(0, 220, 180, 0.35);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.35);
+        }
+
+        .eco-card-image {
+            position: relative;
+
+            height: 280px;
+
+            overflow: hidden;
+        }
+
+        .eco-card-image img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+        .eco-card:hover .eco-card-image img {
+            transform: scale(1.07);
+        }
+
+        .eco-card-image::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 45%,
+                    rgba(0,0,0,0.65)
+                );
+        }
+
+        .eco-number {
+            position: absolute;
+
+            top: 18px;
+            right: 18px;
+
+            z-index: 2;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(4, 15, 20, 0.72);
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            font-weight: 900;
+        }
+
+        .eco-card-content {
+            padding: 25px 24px 28px;
+        }
+
+        .eco-card-content h3 {
+            margin: 0 0 14px;
+
+            font-size: 21px;
+
+            line-height: 1.45;
+
+            font-weight: 850;
+        }
+
+        .eco-card-content p {
+            margin: 0;
+
+            color: rgba(255,255,255,0.67);
+
+            line-height: 1.9;
+
+            font-size: 15px;
+        }
+
+        /* ================= Closing ================= */
+
+        .eco-closing {
+            width: min(1150px, 90%);
+
+            min-height: 400px;
+
+            margin: 10px auto 90px;
+
+            padding: 70px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    rgba(4, 15, 20, 0.78),
+                    rgba(4, 15, 20, 0.78)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=90")
+                center / cover no-repeat;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.30);
+        }
+
+        .eco-closing-content {
+            max-width: 850px;
+        }
+
+        .eco-closing h2 {
+            margin: 0 0 18px;
+
+            font-size: clamp(30px, 5vw, 52px);
+
+            font-weight: 900;
+        }
+
+        .eco-closing p {
+            margin: 0;
+
+            color: rgba(255,255,255,0.78);
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+        /* ================= Footer ================= */
+
+        .eco-footer {
+            padding: 55px 20px 35px;
+
+            text-align: center;
+
+            background: #030a0e;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .eco-footer-logo {
+            width: 58px;
+            height: 58px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            margin-bottom: 15px;
+        }
+
+        .eco-footer strong {
+            display: block;
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .eco-footer p {
+            margin: 7px 0;
+
+            color: rgba(255,255,255,0.58);
+
+            font-size: 14px;
+        }
+
+        .eco-footer .copyright {
+            margin-top: 25px;
+
+            color: rgba(255,255,255,0.78);
+
+            font-weight: 700;
+        }
+
+        /* ================= Mobile ================= */
+
+        @media (max-width: 900px) {
+
+            .eco-header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .eco-nav {
+                width: 100%;
+            }
+
+            .eco-nav a {
+                flex: 1;
+                min-width: 110px;
+            }
+
+            .eco-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .eco-hero {
+                min-height: 560px;
+            }
+        }
+
+        @media (max-width: 620px) {
+
+            .eco-header {
+                position: relative;
+            }
+
+            .eco-brand {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .eco-nav {
+                gap: 7px;
+            }
+
+            .eco-nav a {
+                min-height: 40px;
+                padding: 0 11px;
+
+                font-size: 12px;
+            }
+
+            .eco-grid {
+                grid-template-columns: 1fr;
+                width: 92%;
+            }
+
+            .eco-card-image {
+                height: 250px;
+            }
+
+            .eco-hero {
+                min-height: 520px;
+                padding: 60px 20px;
+            }
+
+            .eco-intro {
+                width: 90%;
+                padding-top: 65px;
+            }
+
+            .eco-closing {
+                width: 92%;
+                margin-bottom: 60px;
+                padding: 55px 25px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- ================= شريط التنقل العلوي ================= -->
-    <header class="main-header">
-        <div class="logo-container">
-            <span class="logo-text">أى.ديجيتال - هورايزونز</span>
-            <span class="logo-sub">نظامنا البيئي المستدام</span>
-        </div>
-        <nav class="nav-links">
-            <a href="index.html">الصفحة الرئيسية</a>
-            <a href="about.html">حول نظامنا</a>
+<div class="eco-page">
+
+    <!-- ================= رأس الصفحة ================= -->
+
+    <header class="eco-header">
+
+        <a href="index.html" class="eco-brand">
+
+            <img
+                src="logo.jpg"
+                alt="Digital Horizons"
+                class="eco-logo"
+            >
+
+            <div class="eco-brand-text">
+                <span class="eco-brand-title">
+                    Digital Horizons
+                </span>
+
+                <span class="eco-brand-subtitle">
+                    نظامنا البيئي المستدام
+                </span>
+            </div>
+
+        </a>
+
+        <nav class="eco-nav">
+
+            <!-- الرئيسية -->
+            <a href="index.html">
+                الرئيسية
+            </a>
+
+            <!-- النظام البيئي -->
+            <a
+                href="ecosystem.html"
+                class="active"
+                aria-current="page"
+            >
+                نظامنا البيئي
+            </a>
+
+            <!-- حول النظام -->
+            <a href="about.html">
+                حول نظامنا
+            </a>
+
         </nav>
+
     </header>
 
-    <!-- ================= قسم محتوى النظام البيئي والمعرض ================= -->
-    <main class="eco-container">
-        <section class="eco-hero">
-            <h1>نظامنا البيئي: التقنية في خدمة الطبيعة</h1>
-            <p>حين يتقاطع الذكاء الاصطناعي مع نقاء الكوكب؛ نصنع معاً مستفاقاً أخضراً، نقياً، ومستداماً للأجيال القادمة.</p>
-        </section>
 
-        <!-- شبكة الصور والرسائل البيئية الست -->
-        <div class="eco-grid">
-            
-            <!-- البطاقة الأولى -->
-            <div class="eco-card">
-                <div class="eco-img-placeholder forest-bg">🌿</div>
-                <div class="eco-content">
-                    <h3>حين تتنفس الغابات بروح التقنية</h3>
-                    <p>استخدام الذكاء الاصطناعي لمراقبة حماية الغابات، الحد من التلوث، ومنع التصحر لتبقى أجيال المستقبل قادرة على استنشاق الهواء النقي.</p>
-                </div>
+    <!-- ================= Hero ================= -->
+
+    <section class="eco-hero">
+
+        <div class="eco-hero-content">
+
+            <div class="eco-label">
+                AI • TECHNOLOGY • NATURE
             </div>
 
-            <!-- البطاقة الثانية -->
-            <div class="eco-card">
-                <div class="eco-img-placeholder ocean-bg">🌊</div>
-                <div class="eco-content">
-                    <h3>أعماق نقية.. بلا بلاستيك أو قيود</h3>
-                    <p>تنظيف البحار والمحيطات من النفايات البلاستيكية باستخدام الحلول الذكية، للحفاظ على الحياة البحرية متوازنة ونظيفة.</p>
-                </div>
-            </div>
+            <h1>
+                نظامنا البيئي:
+                <br>
+                التقنية في خدمة الطبيعة
+            </h1>
 
-            <!-- البطاقة الثالثة -->
-            <div class="eco-card">
-                <div class="eco-img-placeholder city-bg">🏙️</div>
-                <div class="eco-content">
-                    <h3>مدن الغد الخضراء: حيث يختفي التلوث الدخاني</h3>
-                    <p>تقليل الانبعاثات الكربونية والاعتماد على الطاقة النظيفة تماماً لبناء مدن خالية من التلوث البيئي والصوتي.</p>
-                </div>
-            </div>
-
-            <!-- البطاقة الرابعة -->
-            <div class="eco-card">
-                <div class="eco-img-placeholder ice-bg">❄️</div>
-                <div class="eco-content">
-                    <h3>حراسة الجليد: بقاء الكوكب يبدأ من هنا</h3>
-                    <p>مواجهة الاحتباس الحراري والتغير المناخي وحماية القطبين لضمان استقرار مناخ الأرض وحماية الحياة البرية النادرة.</p>
-                </div>
-            </div>
-
-            <!-- البطاقة الخامسة -->
-            <div class="eco-card">
-                <div class="eco-img-placeholder sun-bg">☀️</div>
-                <div class="eco-content">
-                    <h3>طاقة الأرض النظيفة.. بلا دخان ولا رماد</h3>
-                    <p>الاستغناء التدريجي عن الوقود الأحفوري الملوث، والتحول الكامل نحو طاقة الشمس والرياح النظيفة المستدامة.</p>
-                </div>
-            </div>
-
-            <!-- البطاقة السادسة -->
-            <div class="eco-card">
-                <div class="eco-img-placeholder human-bg">🌍</div>
-                <div class="eco-content">
-                    <h3>الإنسان والطبيعة: عقد شراكة أبدي</h3>
-                    <p>التوعية الفردية والمجتمعية بأن حماية البيئة والتنوع البيولوجي هما الضمان الحقيقي لبقاء ونقاء روح البشرية على كوكب الأرض.</p>
-                </div>
-            </div>
+            <p>
+                حين يتقاطع الذكاء الاصطناعي مع نقاء الكوكب؛
+                نصنع معاً مستقبلاً أخضر، نقياً، ومستداماً
+                للأجيال القادمة.
+            </p>
 
         </div>
+
+    </section>
+
+
+    <!-- ================= مقدمة ================= -->
+
+    <section class="eco-intro">
+
+        <h2>
+            التقنية والطبيعة في منظومة واحدة
+        </h2>
+
+        <p>
+            نحن نؤمن أن التكنولوجيا لا يجب أن تكون منفصلة عن
+            الإنسان والطبيعة. لذلك يجمع نظامنا البيئي بين
+            الذكاء الاصطناعي والتقنيات الرقمية والرؤية
+            المستدامة لبناء مستقبل أكثر توازناً.
+        </p>
+
+    </section>
+
+
+    <!-- ================= البطاقات ================= -->
+
+    <main class="eco-grid">
+
+        <!-- 01 -->
+
+        <article class="eco-card">
+
+            <div class="eco-card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=90"
+                    alt="الغابات والطبيعة"
+                    loading="lazy"
+                >
+
+                <span class="eco-number">
+                    01
+                </span>
+
+            </div>
+
+            <div class="eco-card-content">
+
+                <h3>
+                    حين تتنفس الغابات بروح التقنية
+                </h3>
+
+                <p>
+                    استخدام الذكاء الاصطناعي لمراقبة حماية الغابات،
+                    الحد من التلوث، ومنع التصحر لتبقى أجيال المستقبل
+                    قادرة على استنشاق الهواء النقي.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="eco-card">
+
+            <div class="eco-card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=90"
+                    alt="المحيطات والمياه"
+                    loading="lazy"
+                >
+
+                <span class="eco-number">
+                    02
+                </span>
+
+            </div>
+
+            <div class="eco-card-content">
+
+                <h3>
+                    أعماق نقية.. بلا بلاستيك أو قيود
+                </h3>
+
+                <p>
+                    تنظيف البحار والمحيطات من النفايات البلاستيكية
+                    باستخدام الحلول الذكية، للحفاظ على الحياة البحرية
+                    متوازنة ونظيفة.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="eco-card">
+
+            <div class="eco-card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=90"
+                    alt="المدن الذكية"
+                    loading="lazy"
+                >
+
+                <span class="eco-number">
+                    03
+                </span>
+
+            </div>
+
+            <div class="eco-card-content">
+
+                <h3>
+                    مدن الغد الخضراء: حيث يختفي التلوث الدخاني
+                </h3>
+
+                <p>
+                    تقليل الانبعاثات الكربونية والاعتماد على الطاقة
+                    النظيفة تماماً لبناء مدن خالية من التلوث البيئي
+                    والصوتي.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 -->
+
+        <article class="eco-card">
+
+            <div class="eco-card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=1200&q=90"
+                    alt="المناخ والجليد"
+                    loading="lazy"
+                >
+
+                <span class="eco-number">
+                    04
+                </span>
+
+            </div>
+
+            <div class="eco-card-content">
+
+                <h3>
+                    حراسة الجليد: بقاء الكوكب يبدأ من هنا
+                </h3>
+
+                <p>
+                    مواجهة الاحتباس الحراري والتغير المناخي وحماية
+                    القطبين لضمان استقرار مناخ الأرض وحماية الحياة
+                    البرية النادرة.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 -->
+
+        <article class="eco-card">
+
+            <div class="eco-card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1508514177221-188b1e6f6e3d?auto=format&fit=crop&w=1200&q=90"
+                    alt="الطاقة النظيفة"
+                    loading="lazy"
+                >
+
+                <span class="eco-number">
+                    05
+                </span>
+
+            </div>
+
+            <div class="eco-card-content">
+
+                <h3>
+                    طاقة الأرض النظيفة.. بلا دخان ولا رماد
+                </h3>
+
+                <p>
+                    الاستغناء التدريجي عن الوقود الأحفوري الملوث،
+                    والتحول الكامل نحو طاقة الشمس والرياح النظيفة
+                    المستدامة.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 -->
+
+        <article class="eco-card">
+
+            <div class="eco-card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=90"
+                    alt="الإنسان والطبيعة"
+                    loading="lazy"
+                >
+
+                <span class="eco-number">
+                    06
+                </span>
+
+            </div>
+
+            <div class="eco-card-content">
+
+                <h3>
+                    الإنسان والطبيعة: عقد شراكة أبدي
+                </h3>
+
+                <p>
+                    التوعية الفردية والمجتمعية بأن حماية البيئة
+                    والتنوع البيولوجي هما الضمان الحقيقي لبقاء
+                    ونقاء روح البشرية على كوكب الأرض.
+                </p>
+
+            </div>
+
+        </article>
+
     </main>
 
-    <!-- ================= الفوتر السفلي ================= -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <p>&copy; 2026 NEXORA Digital. جميع الحقوق محفوظة.</p>
-            <p class="eco-footer-sig">إدارة المنصات الرقمية - NEXORA Horizons</p>
+
+    <!-- ================= الخاتمة ================= -->
+
+    <section class="eco-closing">
+
+        <div class="eco-closing-content">
+
+            <h2>
+                مستقبل رقمي أكثر انسجاماً مع الكوكب
+            </h2>
+
+            <p>
+                عندما تعمل التكنولوجيا والذكاء الاصطناعي
+                والإنسان والطبيعة ضمن رؤية واحدة،
+                يصبح الابتكار وسيلة لبناء مستقبل أكثر
+                ذكاءً واستدامة.
+            </p>
+
         </div>
+
+    </section>
+
+
+    <!-- ================= Footer ================= -->
+
+    <footer class="eco-footer">
+
+        <img
+            src="logo.jpg"
+            alt="Digital Horizons"
+            class="eco-footer-logo"
+        >
+
+        <strong>
+            digital-horizons.ai
+        </strong>
+
+        <p>
+            نظامنا البيئي الرقمي • AI • Technology • Nature
+        </p>
+
+        <p class="copyright">
+            جميع الحقوق محفوظة digital-horizon 2026
+        </p>
+
     </footer>
 
+</div>
+
 </body>
-</html> 
+</html>
