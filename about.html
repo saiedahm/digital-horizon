@@ -1018,6 +1018,123 @@
 
 </div>
 
-</body>
+<!-- ================= Google Translate ================= -->
 
+<div id="google_translate_element"
+     style="
+        position: fixed;
+        left: -10000px;
+        top: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+     ">
+</div>
+
+<script>
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+        pageLanguage: 'ar',
+        autoDisplay: false
+    }, 'google_translate_element');
+
+    setTimeout(function () {
+
+        const visibleSelect =
+            document.getElementById('languageSelect');
+
+        const googleSelect =
+            document.querySelector('.goog-te-combo');
+
+        if (!visibleSelect || !googleSelect) {
+            return;
+        }
+
+        const languages = [];
+
+        Array.from(googleSelect.options).forEach(function (option) {
+
+            if (!option.value) return;
+
+            languages.push({
+                value: option.value,
+                text: option.textContent
+            });
+
+        });
+
+        /* الألمانية أول لغة */
+        languages.sort(function (a, b) {
+
+            if (a.value === 'de') return -1;
+            if (b.value === 'de') return 1;
+
+            return a.text.localeCompare(b.text);
+        });
+
+        visibleSelect.innerHTML = '';
+
+        languages.forEach(function (language) {
+
+            const option =
+                document.createElement('option');
+
+            option.value = language.value;
+            option.textContent = language.text;
+
+            visibleSelect.appendChild(option);
+
+        });
+
+        visibleSelect.value = 'de';
+
+    }, 1500);
+}
+
+
+/* عند اختيار اللغة */
+
+document.addEventListener('change', function (event) {
+
+    if (event.target.id !== 'languageSelect') {
+        return;
+    }
+
+    const googleSelect =
+        document.querySelector('.goog-te-combo');
+
+    if (!googleSelect) {
+        return;
+    }
+
+    googleSelect.value =
+        event.target.value;
+
+    googleSelect.dispatchEvent(
+        new Event('change')
+    );
+
+});
+
+
+/* تحميل Google Translate */
+
+const googleTranslateScript =
+    document.createElement('script');
+
+googleTranslateScript.src =
+    'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+
+googleTranslateScript.async = true;
+
+document.head.appendChild(
+    googleTranslateScript
+);
+
+</script>
+
+</body>
 </html>
