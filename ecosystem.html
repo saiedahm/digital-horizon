@@ -919,30 +919,112 @@
 
     <!-- ================= Footer ================= -->
 
-    <footer class="eco-footer">
+  <footer class="eco-footer">
 
-        <img
-            src="logo.jpg"
-            alt="Digital Horizons"
-            class="eco-footer-logo"
+    <img
+        src="logo.jpg"
+        alt="Digital Horizons"
+        class="eco-footer-logo"
+    >
+
+    <strong>
+        digital-horizons.ai
+    </strong>
+
+    <p>
+        نظامنا البيئي الرقمي • AI • Technology • Nature
+    </p>
+
+    <div style="
+        margin: 25px auto 15px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    ">
+
+        <button
+            type="button"
+            class="legal-button"
+            data-legal="impressum"
+            style="
+                background: none;
+                border: none;
+                color: rgba(255,255,255,0.75);
+                cursor: pointer;
+                font: inherit;
+                text-decoration: underline;
+            "
         >
+            Impressum
+        </button>
 
-        <strong>
-            digital-horizons.ai
-        </strong>
+        <button
+            type="button"
+            class="legal-button"
+            data-legal="privacy"
+            style="
+                background: none;
+                border: none;
+                color: rgba(255,255,255,0.75);
+                cursor: pointer;
+                font: inherit;
+                text-decoration: underline;
+            "
+        >
+            Datenschutz (DSGVO)
+        </button>
 
-        <p>
-            نظامنا البيئي الرقمي • AI • Technology • Nature
-        </p>
+        <button
+            type="button"
+            class="legal-button"
+            data-legal="terms"
+            style="
+                background: none;
+                border: none;
+                color: rgba(255,255,255,0.75);
+                cursor: pointer;
+                font: inherit;
+                text-decoration: underline;
+            "
+        >
+            Nutzungsbedingungen (AGB)
+        </button>
 
-        <p class="copyright">
-            جميع الحقوق محفوظة digital-horizon 2026
-        </p>
+    </div>
 
-    </footer>
+    <p class="copyright">
+        Alle Rechte vorbehalten digital-horizon 2026
+    </p>
 
+</footer>
+
+<!-- ================= Legal Modal ================= -->
+
+<div
+    class="modal-overlay"
+    id="legalModal"
+    aria-hidden="true"
+>
+    <div
+        class="legal-modal"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            id="legalClose"
+            aria-label="Fenster schließen"
+        >
+            ×
+        </button>
+
+        <div id="legalContent"></div>
+
+    </div>
 </div>
-
 <!-- ================= Google Translate ================= -->
 
 <div id="google_translate_element"
@@ -1060,6 +1142,12 @@ document.head.appendChild(
 );
 
 </script>
+<script>
+    /* كود Google Translate الموجود عندك */
+</script>
+
+<script src="app.js"></script>
 
 </body>
 </html>
+
