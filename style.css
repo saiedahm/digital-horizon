@@ -1121,3 +1121,79 @@ body {
     background: rgba(0, 217, 255, .25);
     color: white;
 }
+/* =========================================================
+   GLOBAL LANGUAGE SELECTOR — ECOSYSTEM / ABOUT
+========================================================= */
+
+.language-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-inline-start: 8px;
+}
+
+.language-switcher select {
+    min-height: 42px;
+    min-width: 125px;
+
+    padding: 8px 34px 8px 15px;
+
+    border: 1px solid var(--cyan);
+    border-radius: 22px;
+
+    background: rgba(1, 10, 22, .96);
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+    outline: none;
+
+    box-shadow:
+        0 0 8px rgba(0, 210, 255, .25);
+
+    transition:
+        background .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.language-switcher select:hover,
+.language-switcher select:focus {
+    background: rgba(0, 210, 255, .12);
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 15px rgba(0, 210, 255, .45);
+}
+
+.language-switcher select option {
+    background: #020914;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+@media (max-width: 760px) {
+
+    .language-switcher {
+        margin-left: auto;
+    }
+
+    .language-switcher select {
+        min-width: 115px;
+        min-height: 40px;
+        padding: 7px 28px 7px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .language-switcher select {
+        min-width: 105px;
+        padding: 7px 25px 7px 10px;
+        font-size: 11px;
+    }
+}
