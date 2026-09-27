@@ -462,6 +462,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             clearGoogleLanguageCookie();
 
+            try {
+                localStorage.removeItem(
+                    "digitalHorizonsLanguage"
+                );
+            } catch (error) {
+                /* Ignore storage errors */
+            }
+
             removeGoogleTranslateBar();
 
             /*
@@ -474,6 +482,23 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+
+        /* -----------------------------------------------
+           SAVE LANGUAGE BEFORE TRANSLATION
+           This keeps the selected language when the visitor
+           moves between pages.
+        ------------------------------------------------ */
+
+        setGoogleLanguageCookie(lang);
+
+        try {
+            localStorage.setItem(
+                "digitalHorizonsLanguage",
+                lang
+            );
+        } catch (error) {
+            /* localStorage may be unavailable in private/restricted mode */
+        }
 
         /* -----------------------------------------------
            TRY IMMEDIATE TRANSLATION
@@ -492,9 +517,6 @@ document.addEventListener("DOMContentLoaded", () => {
         /* -----------------------------------------------
            GOOGLE SELECTOR NOT READY YET
         ------------------------------------------------ */
-
-        setGoogleLanguageCookie(lang);
-
 
         let attempts = 0;
 
@@ -605,6 +627,56 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         }
     );
+
+
+    /* =====================================================
+       RESTORE SAVED LANGUAGE
+       Restores the visitor's language when a new page
+       is opened on the same website.
+    ===================================================== */
+
+    let savedLanguage = null;
+
+    try {
+        savedLanguage =
+            localStorage.getItem(
+                "digitalHorizonsLanguage"
+            );
+    } catch (error) {
+        savedLanguage = null;
+    }
+
+    if (
+        savedLanguage &&
+        supportedLanguages.includes(savedLanguage) &&
+        savedLanguage !== "de"
+    ) {
+        applyDirection(savedLanguage);
+
+        setGoogleLanguageCookie(savedLanguage);
+
+        let restoreAttempts = 0;
+
+        const restoreTimer =
+            setInterval(() => {
+
+                restoreAttempts++;
+
+                removeGoogleTranslateBar();
+
+                if (
+                    selectGoogleLanguage(savedLanguage)
+                ) {
+                    clearInterval(restoreTimer);
+                    return;
+                }
+
+                if (restoreAttempts >= 30) {
+                    clearInterval(restoreTimer);
+                }
+
+            }, 250);
+    }
 
 
     /* =====================================================
@@ -985,7 +1057,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <p>
     Die Plattform befindet sich derzeit in der Testphase.
   </p>
-`,,
+`,
 
 
         privacy: `
@@ -1281,4 +1353,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     removeGoogleTranslateBar();
 
-});
+}); 
