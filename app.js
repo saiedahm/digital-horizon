@@ -1113,6 +1113,18 @@ document.addEventListener("DOMContentLoaded", () => {
         `,
 
 
+        widerruf: `
+            <h2>Widerruf</h2>
+            <p>Für Fragen zu einem möglichen Widerruf wenden Sie sich bitte an <a href="mailto:info@nexoraonline.de">info@nexoraonline.de</a>.</p>
+            <p>Die Plattform befindet sich derzeit in der Testphase.</p>
+        `,
+
+        cookies: `
+            <h2>Cookie-Einstellungen</h2>
+            <p>Diese Website verwendet technisch notwendige Speicher- und Sitzungsmechanismen.</p>
+            <p>Nicht notwendige Cookies werden nicht als bereits aktiviert dargestellt. Die Einstellungen werden vor dem Produktivbetrieb um eine echte Einwilligungsverwaltung erweitert, sofern nicht notwendige Cookies oder vergleichbare Technologien eingesetzt werden.</p>
+        `,
+
         terms: `
             <h2>Nutzungsbedingungen (AGB)</h2>
 
